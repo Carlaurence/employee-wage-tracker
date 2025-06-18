@@ -7,7 +7,7 @@ describe('addEmployee', () => {
 
     addEmployee(employeeTracker, name);
     // The employee 'Carlos' should be added with an empty object as its value
-    expect(employeeTracker[name]).toEqual({});
+    expect(employeeTracker[name]).toEqual({ Pay: 0, Time: 0 });
   });
 
   test('should not overwrite existing employee if already present', () => {
