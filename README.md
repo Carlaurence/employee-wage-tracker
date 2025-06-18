@@ -20,6 +20,10 @@ Jeff: 6.75 hours 135 earned
 Matt: 10.5 hours 105 earned
 Mike: 0 hours 0 earned
 
+## Requirements
+
+- Node.js **v23.3.0** or higher
+
 ## Features
 
 - Add employees to a tracker (without overwriting if already exists)
