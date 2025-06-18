@@ -1,10 +1,10 @@
+const addEmployee = require('./addEmployee.js')
+
 // Assigns the hourly pay rate and initializes worked time to 0
 const addRate = (employeeTracker, name, rate) => {
-  if (!employeeTracker.hasOwnProperty(name)) {
-    employeeTracker[name] = {};
-  }
-
+  // add name to employeeTracker if doesn't exist
+  addEmployee(employeeTracker, name)
+  
   employeeTracker[name]['Pay'] = rate;
-  employeeTracker[name]['Time'] = 0;
 };
 module.exports = addRate;
