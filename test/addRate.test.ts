@@ -1,4 +1,4 @@
-const addRate = require('../utils/addRate');
+import { addRate } from '../utils/addRate';
 
 describe('addRate', () => {
   test('should set Pay and Time=0 for an existing employee', () => {

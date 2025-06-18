@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    //"target": "es2016",                                /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
+    "target": "ES2020" /* It controls which version of JavaScript TypeScript generates (for example, whether it includes async/await, ?., let, const, etc.).*/,
+    "module": "ESNext" /* This option tells TypeScript to use modern ECMAScript module syntax when compiling your code: import { readFileSync } from 'fs'; and export const x = 1; */,
+    "moduleResolution": "node",
+    "esModuleInterop": true /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables 'allowSyntheticDefaultImports' for type compatibility. */,
+    "strict": true /* Enable all strict type-checking options. */,
+    "outDir": "dist",
+    "rootDir": ".",
+    "forceConsistentCasingInFileNames": true /* Ensure that casing is correct in imports. */,
+    "skipLibCheck": true /* Skip type checking all .d.ts files. */
+  },
+  "include": ["index.ts", "utils/**/*.ts"], //Se compilan
+  "exclude": ["node_modules", "test", "tests", "types"] // no se compilan
+}

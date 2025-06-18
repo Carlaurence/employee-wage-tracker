@@ -1,4 +1,4 @@
-const addTime = require('../utils/addTime');
+import { addTime } from '../utils/addTime';
 
 describe('addTime', () => {
   test('should assign a value to the time property if time=0 and other employees cannot be affected', () => {

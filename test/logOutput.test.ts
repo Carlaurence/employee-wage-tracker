@@ -1,12 +1,14 @@
-const logOutput = require('../utils/logOutput');
+import { logOutput } from '../utils/logOutput';
 
 describe('logOutput', () => {
+  let logSpy: jest.SpyInstance;
+
   beforeEach(() => {
-    jest.spyOn(console, 'log').mockImplementation(() => {});
+    logSpy = jest.spyOn(console, 'log').mockImplementation(() => {});
   });
 
   afterEach(() => {
-    console.log.mockRestore();
+    logSpy.mockRestore();
   });
 
   test('should log employee summary in alphabetical order', () => {
@@ -19,8 +21,14 @@ describe('logOutput', () => {
     logOutput(input);
 
     // Check that the calls are in alphabetical order
-    expect(console.log).toHaveBeenNthCalledWith(1, 'Jeff: 6.75 hours 135 earned');
-    expect(console.log).toHaveBeenNthCalledWith(2, 'Matt: 10.5 hours 105 earned');
+    expect(console.log).toHaveBeenNthCalledWith(
+      1,
+      'Jeff: 6.75 hours 135 earned'
+    );
+    expect(console.log).toHaveBeenNthCalledWith(
+      2,
+      'Matt: 10.5 hours 105 earned'
+    );
     expect(console.log).toHaveBeenNthCalledWith(3, 'Mike: 0 hours 0 earned');
   });
 

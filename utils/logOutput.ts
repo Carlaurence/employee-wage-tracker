@@ -1,5 +1,7 @@
+import { LogOutput } from '../types/LogOutput';
+
 // Logs the final output of hours worked and amount earned for each employee
-const logOutput = (employeeTracker) => {
+export const logOutput: LogOutput = (employeeTracker) => {
   const sortedArray = Object.entries(employeeTracker).sort(([a], [b]) =>
     a.localeCompare(b)
   );
@@ -15,5 +17,3 @@ const logOutput = (employeeTracker) => {
 // Jeff: 6.75 hours 135 earned
 // Matt: 10.5 hours 105 earned
 // Mike: 0 hours 0 earned
-
-module.exports = logOutput;

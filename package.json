@@ -1,9 +1,12 @@
 {
   "name": "coding-challenge-lows-associates",
   "version": "1.0.0",
-  "main": "index.js",
+  "type": "module",
+  "main": "dist/index.js",
   "scripts": {
-    "start": " node index.js",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "prod": "npm run build && npm run start",
     "test": "jest"
   },
   "author": "Carlos Salcedo",
@@ -13,6 +16,11 @@
     "dayjs": "^1.11.13"
   },
   "devDependencies": {
-    "jest": "^29.7.0"
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.0.3",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.4.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
   }
 }

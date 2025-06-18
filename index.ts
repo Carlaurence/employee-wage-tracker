@@ -1,10 +1,12 @@
-const fs = require('node:fs'); // Core module to read / write files
-const path = require('node:path'); // Core module to resolve files paths
+import fs from 'node:fs'; // Core module to read / write files
+import path from 'node:path'; // Core module to resolve files paths
+
 //Import utility functions
-const addEmployee = require('./utils/addEmployee');
-const addRate = require('./utils/addRate');
-const addTime = require('./utils/addTime');
-const logOutput = require('./utils/logOutput');
+import { addEmployee } from './utils/addEmployee.js';
+import { addRate } from './utils/addRate.js';
+import { addTime } from './utils/addTime.js';
+import { logOutput } from './utils/logOutput.js';
+import { EmployeeTracker } from './types/EmployeeTracker.js'; // Interface
 
 // To get the file path from command line: "node index.js EmpTestFile.txt"
 const filePath = process.argv[2] || 'EmpTestFile.txt';
@@ -25,7 +27,8 @@ fs.readFile(fullPath, 'utf-8', (error, data) => {
   }
 
   const txtToArray = data.split('\n'); // Convert file content into array of rows
-  const employeeTracker = {}; // Object to store employee data
+  const employeeTracker: EmployeeTracker = {}; // Object to store employee data
+
   let count = 0;
 
   // Iterate Array every row
@@ -41,7 +44,7 @@ fs.readFile(fullPath, 'utf-8', (error, data) => {
       }
       case 'Pay': {
         // rowColumns[2] = row 'Pay' in Column 'rate-value'
-        addRate(employeeTracker, name, rowColumns[2]);
+        addRate(employeeTracker, name, parseFloat(rowColumns[2]));
         break;
       }
       case 'Time': {

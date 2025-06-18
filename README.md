@@ -24,6 +24,14 @@ Mike: 0 hours 0 earned
 
 - Node.js **v23.3.0** or higher
 
+## Tech Stack
+
+- Node.js (v23.3.0)
+- TypeScript
+- Day.js (date manipulation)
+- ES Modules (`type: "module"`)
+- Jest (testing)
+
 ## Features
 
 - Add employees to a tracker (without overwriting if already exists)
@@ -40,32 +48,47 @@ Mike: 0 hours 0 earned
 - `ThirdCaseFile.txt`: Contains a `Pay` command for a non-existent employee to test auto-creation
 
 ## Project Structure
+
 ```
-├── index.js # Entry point
-├── tests/
-│ ├── addEmployee.test.js
-│ ├── addRate.test.js
-│ ├── addTime.test.js
-│ ├── findTime.test.js
-│ └── logOutput.test.js
-├── utils/
-│ ├── addEmployee.js # Adds a new employee if not exists
-│ ├── addRate.js # Sets Pay and Time=0 (creates if missing)
-│ ├── addTime.js # Adds worked time to employee
-│ ├── findTime.js # Calculates hour difference using Day.js
-│ └── logOutput.js # Outputs final report sorted by name
+├── dist/                 # Transpiled JS output (auto-generated)
+├── tests/                # Unit tests
+│ ├── addEmployee.test.ts
+│ ├── addRate.test.ts
+│ ├── addTime.test.ts
+│ ├── findTime.test.ts
+│ └── logOutput.test.ts
+├── types/                # Type definitions
+│ ├── AddEmployee.ts
+│ ├── AddRate.ts
+│ ├── AddTime.ts
+│ ├── EmployeeTracker.ts
+│ ├── FindTime.ts
+│ └── LogOutput.ts
+├── utils/                 # Business logic
+│ ├── addEmployee.ts       # Adds a new employee if not exists
+│ ├── addRate.ts           # Sets Pay and Time=0 (creates if missing)
+│ ├── addTime.ts           # Adds worked time to employee
+│ ├── findTime.ts          # Calculates hour difference using Day.js
+│ └── logOutput.ts         # Outputs final report sorted by name
 ├── .gitignore
-├── EmpTestFile.txt # Default test file (used by default).
-├── SecondCaseFile.txt # Contains repeated Employee command (ignored).
-├── ThirdCaseFile.txt # Pay command for non-existent name (creates new employee).
+├── EmpTestFile.txt        # Default test file (used by default).
+├── SecondCaseFile.txt     # Contains repeated Employee command (ignored).
+├── ThirdCaseFile.txt      # Pay command for non-existent name (creates new employee).
+├── index.ts               # Entry point
+├── package.json           # Project metadata, scripts, dependencies
+├── tsconfig.json          # TypeScript compiler options
+├── jest.config.ts         # Jest test configuration
 └── README.md
 ```
 
-## Running App
+## Running Typescript App
 
-- 'npm run start' is going to run EmpTestFile.txt file as default value
-- 'npm run start SecondCaseFile.txt' is going to run SecondCaseFile.txt file
-- 'npm run start ThirdCaseFile.txt' is going to run ThirdCaseFile.txt file
+- This project is written in TypeScript. To run it, you must first transpile the code by running:
+- 'npm run build' This command will generate a /dist folder containing JavaScript code ready to be executed by Node.js.
+- Once the code is built in /dist, you can run the compiled JavaScript version using:
+- 'npm run start' This command will run EmpTestFile.txt file as default value
+- 'npm run start SecondCaseFile.txt' This command will run SecondCaseFile.txt file
+- 'npm run start ThirdCaseFile.txt' This command will run ThirdCaseFile.txt file
 - 'npm run start [CustomFile.txt]' If the user want to create and runs his custom file
 
 ## Running Tests
@@ -73,6 +96,10 @@ Mike: 0 hours 0 earned
 - 'npm test' to run all test files
 - 'npx jest test/addRate.test.js' to run a specific test file
 - 'npx jest --coverage' to view test coverage
+
+## Run In Production
+
+- "npm run prod' This command will generate a /dist folder that contains JavaScript code ready to be executed and runs the app execution.
 
 ## Logic Summary
 

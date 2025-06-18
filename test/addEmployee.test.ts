@@ -1,9 +1,10 @@
-const addEmployee = require('../utils/addEmployee');
+import { addEmployee } from '../utils/addEmployee';
+import { EmployeeTracker } from '../types/EmployeeTracker';
 
 describe('addEmployee', () => {
   test('should add a key and set it with a empty object value', () => {
-    const employeeTracker = {};
-    const name = 'Carlos';
+    const employeeTracker: EmployeeTracker = {};
+    const name: string = 'Carlos';
 
     addEmployee(employeeTracker, name);
     // The employee 'Carlos' should be added with an empty object as its value
@@ -11,7 +12,7 @@ describe('addEmployee', () => {
   });
 
   test('should not overwrite existing employee if already present', () => {
-    const employeeTracker = {
+    const employeeTracker: EmployeeTracker = {
       Ana: { Pay: 15, Time: 3 },
     };
 
