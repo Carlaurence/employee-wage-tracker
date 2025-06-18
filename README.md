@@ -40,7 +40,7 @@ Mike: 0 hours 0 earned
 - `ThirdCaseFile.txt`: Contains a `Pay` command for a non-existent employee to test auto-creation
 
 ## Project Structure
-
+```
 ├── index.js # Entry point
 ├── tests/
 │ ├── addEmployee.test.js
@@ -59,6 +59,7 @@ Mike: 0 hours 0 earned
 ├── SecondCaseFile.txt # Contains repeated Employee command (ignored).
 ├── ThirdCaseFile.txt # Pay command for non-existent name (creates new employee).
 └── README.md
+```
 
 ## Running App
 
