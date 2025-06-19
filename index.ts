@@ -26,7 +26,10 @@ fs.readFile(fullPath, 'utf-8', (error, data) => {
     process.exit(1);
   }
 
-  const txtToArray = data.split('\n'); // Convert file content into array of rows
+  const txtToArray = data
+    .split('\n')
+    .map((row) => row.trim())
+    .filter(Boolean); // Convert file content into array of rows, trim white spaces and \n
   const employeeTracker: EmployeeTracker = {}; // Object to store employee data
 
   let count = 0;
